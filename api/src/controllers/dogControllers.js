@@ -1,6 +1,4 @@
 const allDogs = require("../allDogs");
-const { API_KEY, API_URL } = process.env;
-const axios = require("axios");
 //----------------------------------------------------------------------------------------------------------------------------------
 
 const getBreed = async () => {
@@ -12,21 +10,10 @@ const getBreed = async () => {
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// Tiene que incluir los datos de los temperamentos asociadas a esta raza.
-// Debe funcionar tanto para los perros de la API como para los de la base de datos
+
 const getDogById = async (id) => {
   const dogs = await allDogs();
-  const dogsId = dogs
-    .filter((dog) => dog.id === +id)
-    .map((dog) => ({
-      id: dog.id,
-      name: dog.name,
-      image: dog.image,
-      height: dog.height,
-      weight: dog.weight,
-      life_span: dog.life_span,
-      temperament: dog.temperament?.split(",").map((temp) => temp.trim()) || []
-    }));
+  const dogsId = dogs.filter((dog) => dog.id === +id);
   if (!dogsId[0])
     throw new Error(
       "The ID you entered is not valid. Please try again with another ID."
@@ -36,10 +23,27 @@ const getDogById = async (id) => {
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
-const getDogByName = async () => {};
+const getDogByName = async (name) => {
+  const dogs = await allDogs();
+  const dogName = dogs.filter(
+    (dog) =>
+      dog.name.toLowerCase().replace(/ /g, "") ===
+      name.toLowerCase().replace(/ /g, "")
+  );
+  if (!dogName[0])
+    throw new Error(
+      "There are no dogs of that breed. Please try again with a different breed."
+    );
+  return dogName;
+};
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
-const createDog = async () => {};
+const createDog = async ({name, image, height, weight, lifespan, temperament}) => {
+//   Esta ruta recibirá todos los datos necesarios para crear un nuevo perro y relacionarlo con los temperamentos asociados.
+// Toda la información debe ser recibida por body.
+// Debe crear la raza de perro en la base de datos, y esta debe estar relacionada con los temperamentos indicados (al menos uno).
+
+};
 
 module.exports = { getBreed, getDogById, getDogByName, createDog };
