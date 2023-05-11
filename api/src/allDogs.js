@@ -26,9 +26,12 @@ const allDogs = async () => {
       attributes: ["name"],
     },
   });
-  const dogsInDbValues = dogsInDb.map((dog) => dog.dataValues)
-
-  return [...dogsInApi, ...dogsInDbValues];
+  const dogsInDbValues = dogsInDb.map((dog) => dog.get({ plain: true }));
+  
+  const allDogs = [...dogsInApi, ...dogsInDbValues];
+  allDogs.sort((a, b) => a.name.localeCompare(b.name));
+  
+  return allDogs;
 };
 
 module.exports = allDogs;

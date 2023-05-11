@@ -1,12 +1,13 @@
-const { Router } = require("express");
-const tempRouter = Router();
+const express = require("express");
+const getAllTemperaments = require("../controllers/tempController");
+const tempRouter = express.Router();
+tempRouter.get("", async (req, res) => {
+  try {
+    const temperaments = await getAllTemperaments();
+    res.status(200).json(temperaments);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
 
-tempRouter.get("", (req, res)=>{
-    try {
-        res.status(200).send("hi I am the route that returns a temperament")
-    } catch (error) {
-        res.status(404).send(error.message)
-    }
-})
-
-module.exports = tempRouter
+module.exports = tempRouter;

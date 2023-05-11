@@ -1,10 +1,10 @@
 const allDogs = require("../allDogs");
-const { Dog, Temperament } = require("../db");
 //----------------------------------------------------------------------------------------------------------------------------------
 
 const getBreed = async () => {
   // getting data from allDogs
   const dogs = await allDogs();
+  // console.log(dogs)
   //returning an array with all the dog breeds as objects
   const dogsName = dogs.map((dog) => ({ name: dog.name }));
   return dogsName;
@@ -49,17 +49,5 @@ const getDogByName = async (name) => {
 
 //----------------------------------------------------------------------------------------------------------------------------------
 
-const createDog = async ({
-  name,
-  image,
-  height,
-  weight,
-  lifespan,
-  temperament,
-}) => {
-  //   Esta ruta recibirá todos los datos necesarios para crear un nuevo perro y relacionarlo con los temperamentos asociados.
-  // Toda la información debe ser recibida por body.
-  // Debe crear la raza de perro en la base de datos, y esta debe estar relacionada con los temperamentos indicados (al menos uno).
-};
 
-module.exports = { getBreed, getDogById, getDogByName, createDog };
+module.exports = { getBreed, getDogById, getDogByName };
