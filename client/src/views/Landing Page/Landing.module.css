@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-color: rgb(239, 222, 205);
+  background-image: url("./dog-png-22650.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 50% 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  align-items: center;
+}
+
+.button {
+  margin: 140px;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  line-height: 17px;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: "Palatino Linotype", serif;
+  font-weight: 550;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
+  background-image: linear-gradient(
+    to right,
+    rgb(148, 110, 86) 0%,
+    rgb(199, 148, 116) 50%,
+    rgb(102, 76, 59) 100%
+  );
+  box-shadow: rgb(59, 44, 34) 6px 5px 15px 5px;
+  border: 2px solid rgb(102, 76, 59);
+  display: inline-block;
+}
+
+.button:hover {
+  background: rgb(97, 72, 56);
+}
+
+.button:active {
+  background: rgb(97, 72, 56);
+  text-decoration: underline solid rgb(68, 68, 68);
+}
+
+h1 {
+    margin-top: 20px;
+  color: rgb(140, 91, 44);
+  text-shadow: 8px 7px 5px rgb(54, 35, 17);
+  font-size: 100px;
+  text-align: center;
+}
+p{
+    margin-top: -50px;
+}
