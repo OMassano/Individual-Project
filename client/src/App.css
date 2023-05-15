@@ -1,13 +1,16 @@
 /* https://coolors.co/palette/414833-656d4a-aab18d-c2c5aa-e5dbc4-b8a183-a68a64-997250-7f4f24
+*/
 .App {
-    text-align: center;
-    background-color: rgb(229, 219, 196);
-    background-image: url("./pngwing.com.png");
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: 100% 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.5;
-  } */
+  text-align: center;
+  background-color: rgb(229, 219, 196);
+  background-image: url("./pngwing.com.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 100% 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  position: relative;
+  z-index: -1;
+}

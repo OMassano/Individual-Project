@@ -20,7 +20,7 @@ const postNewDogHandler = async (req, res) => {
         },
       },
     });
-    
+
     res.status(200).json(dogsInTemp);
   } catch (error) {
     res.status(404).json({ error: error.message });

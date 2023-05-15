@@ -6,8 +6,10 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
     <div className="App">
-      {// eslint-disable-next-line no-restricted-globals
-      location.pathname !== "/" && <NavBar />}
+      {
+        // eslint-disable-next-line no-restricted-globals
+        location.pathname !== "/" && <NavBar />
+      }
 
       <Route exact path="/" render={() => <Landing />} />
       <Route path="/homepage" render={() => <Home />} />

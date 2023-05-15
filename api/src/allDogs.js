@@ -11,8 +11,7 @@ const filterDogsData = async (res) => {
     height: dog.height.metric,
     weight: dog.weight.metric,
     life_span: dog.life_span,
-    temperament:
-          dog.temperament?.split(",").map((temp) => temp.trim()) || [],
+    temperament: dog.temperament?.split(",").map((temp) => temp.trim()) || [],
   }));
   return filteredDogs;
 };
@@ -27,10 +26,10 @@ const allDogs = async () => {
     },
   });
   const dogsInDbValues = dogsInDb.map((dog) => dog.get({ plain: true }));
-  
+
   const allDogs = [...dogsInApi, ...dogsInDbValues];
   allDogs.sort((a, b) => a.name.localeCompare(b.name));
-  
+
   return allDogs;
 };
 

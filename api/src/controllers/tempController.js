@@ -7,10 +7,10 @@ const getAllTemperaments = async () => {
   const tempArray = [];
   const temps = await dogsInAPI.data
     .filter((dog) => dog.temperament !== null)
-    .map((dog) => dog.temperament)// receiving temp from each dog in api
+    .map((dog) => dog.temperament) // receiving temp from each dog in api
     .join(",")
     .split(",")
-    .map((temp) => temp.trim())// getting rid of spaces
+    .map((temp) => temp.trim()) // getting rid of spaces
     .map((temp) => {
       if (tempArray.includes(temp)) {
         console.log(

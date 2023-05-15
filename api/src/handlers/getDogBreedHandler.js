@@ -6,13 +6,12 @@ const getDogBreedHandler = async (req, res) => {
     if (name) {
       const dogsName = await getDogByName(name);
       res.status(200).json(dogsName);
-    } 
-    else {
+    } else {
       const dog = await getBreed();
       res.status(200).json(dog);
     }
   } catch (error) {
-    res.status(404).json({error: error.message});
+    res.status(404).json({ error: error.message });
   }
 };
 

@@ -9,6 +9,6 @@ const router = Router();
 router.use("/dogs", dogRouter);
 router.use("/temperaments", tempRouter);
 
-router.get("/getalldogs", getAllDogsHandler)
+router.get("/getalldogs", getAllDogsHandler);
 
 module.exports = router;
