@@ -30,6 +30,9 @@ body {
   font-style: normal;
   font-variant: small-caps;
   text-transform: none;
+  display: flex;
+  align-items: center; /* Added property */
+  justify-content: center; /* Added property */
   background-image: linear-gradient(
     to right,
     rgb(153, 114, 80) 0%,
@@ -38,7 +41,6 @@ body {
   );
   box-shadow: rgb(59, 44, 34) 6px 5px 15px 5px;
   border: 2px solid rgb(102, 76, 59);
-  display: inline-block;
 }
 
 .button:hover {
@@ -51,12 +53,12 @@ body {
 }
 
 .landing {
-    margin-top: 20px;
+  margin-top: 20px;
   color: rgb(153, 114, 80);
   text-shadow: 8px 7px 5px rgb(17, 17, 0);
   font-size: 100px;
   text-align: center;
 }
-p{
-    margin-top: -50px;
+.thisp {
+  margin-top: -50px;
 }

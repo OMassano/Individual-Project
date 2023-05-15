@@ -21,11 +21,11 @@ module.exports = (sequelize) => {
         unique: true,
       },
       height: {
-        type: DataTypes.JSONB,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       weight: {
-        type: DataTypes.JSONB,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       life_span: {

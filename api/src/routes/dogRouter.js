@@ -1,13 +1,11 @@
 const express = require("express");
 const dogRouter = express.Router();
 
-const getByIdHandler = require("../handlers/getDogByIDHandler")
-const getDogBreedHandler = require("../handlers/getDogBreedHandler");
-const postNewDogHandler = require("../handlers/postNewDogHandler");
-
+const {getDogByIDHandler, getDogBreedHandler, postNewDogHandler} = require("../handlers/index")
 // all of dogRouter starts with "/dogs"
 dogRouter.get("", getDogBreedHandler);
-dogRouter.get("/:id", getByIdHandler);
+dogRouter.get("/:id", getDogByIDHandler);
 dogRouter.post("", postNewDogHandler);
+
 
 module.exports = dogRouter;

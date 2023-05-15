@@ -1,6 +1,6 @@
 const { getDogById } = require("../controllers/dogControllers");
 
-const getByIdHandler = async (req, res) => {
+const getDogByIDHandler = async (req, res) => {
   const { id } = req.params;
 
   const source = isNaN(id) ? "db" : "api";
@@ -15,4 +15,4 @@ const getByIdHandler = async (req, res) => {
   }
 };
 
-module.exports = getByIdHandler;
+module.exports = getDogByIDHandler;
