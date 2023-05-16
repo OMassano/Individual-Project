@@ -7,7 +7,7 @@ const filterDogsData = async (res) => {
   const filteredDogs = await res.data.map((dog) => ({
     id: dog.id,
     name: dog.name,
-    image: dog.image,
+    image: dog.image.url,
     height: dog.height.metric,
     weight: dog.weight.metric,
     life_span: dog.life_span,

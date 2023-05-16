@@ -1,16 +1,13 @@
-import style from "./Landing.module.css";
-const Landing = () => {
-  return (
-    <div className={style.background}>
-      <h1 className={style.landing}>Welcome to the official dog API</h1>
-      <p className={style.thisp}>
-        To access site please click on the button below
-      </p>
-      <a href="/homepage" className={style.button}>
-        Click Me
-      </a>
-    </div>
-  );
-};
+import style from './Landing.module.css'
+import {Link} from "react-router-dom"
+const Landing = () =>{
+    return(
+        <div className={style.background}>
+            <h1 className={style.title}>Encyclopedia of Dogs</h1>
+            <p className={style.thisp}>To learn more about dogs please click the button below!</p>
+            <Link to="/home" className={style.button}>Click Me</Link>
+        </div>
+    )
+}
 
-export default Landing;
+export default Landing

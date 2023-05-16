@@ -1,21 +1,20 @@
-import { Landing, Home, Form, Detail, About } from "./views";
-import { Route } from "react-router-dom";
+import { About, Detail, Form, Home, Landing } from "./views";
 import "./App.css";
-import NavBar from "./components/NavBar/NavBar";
+import { Route, Routes, useLocation } from "react-router-dom";
+import NavBar from "./components/Navbar/Navbar";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
-      {
-        // eslint-disable-next-line no-restricted-globals
-        location.pathname !== "/" && <NavBar />
-      }
-
-      <Route exact path="/" render={() => <Landing />} />
-      <Route path="/homepage" render={() => <Home />} />
-      <Route path="/dog-detail" render={() => <Detail />} />
-      <Route path="/create-dog" render={() => <Form />} />
-      <Route path="/about" render={() => <About />}></Route>
+      {location.pathname !== "/" && <NavBar/>}
+      <Routes>
+        <Route exact path="/" element={<Landing />}/>
+        <Route path= "/home" element={<Home/>}/>
+        <Route path="/create-dog" element={<Form/>}/>
+        <Route path="/dogdetail" element={<Detail/>}/>
+        <Route path="/about" element={<About/>}/>      
+      </Routes>
     </div>
   );
 }

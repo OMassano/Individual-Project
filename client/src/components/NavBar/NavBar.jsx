@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import style from "./NavBar.module.css";
+import style from "./Navbar.module.css"
 
-// creates a link at top of page to all my routes
-const NavBar = () => {
-  return (
-    <div className={style.mainContainer}>
-      <Link to="/homepage">Home</Link>
-      <Link to="/create-dog">Form</Link>
-      <Link to="/about">About</Link>
+const NavBar = () =>{
+ return(
+    <div className={style.container}>
+        <Link to="/home">Home</Link>
+        <Link to="/create-dog">Form</Link>
+        <Link to="/about">About Us</Link>
     </div>
-  );
-};
+ )   
+}
 
 export default NavBar;

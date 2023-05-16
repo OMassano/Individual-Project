@@ -1,9 +1,7 @@
-const Detail = () => {
-  return (
-    <>
-      <h1>Detail View</h1>
-    </>
-  );
-};
+const Detail = () =>{
+    return(
+        <h1>Detail</h1>
+    )
+}
 
-export default Detail;
+export default Detail

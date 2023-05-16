@@ -1,13 +1,14 @@
-//has to show the info of each props and give us a link to be able to see props detail
+//should show the info of each dog from cards and give us a link to open dog detail
 import style from "./Card.module.css";
-const Card = (props) => {
+const Card = (dog) => {
   return (
     <div className={style.card}>
-      <p>Name:{props.name}</p>
-      <p>Weight:{props.weight}</p>
-      <p>Height:{props.height}</p>
-      <p>LifeSpan:{props.life_span}</p>
-      <p>Temperaments:{props.temperament}</p>
+      <img src={dog.image} alt={dog.name} className={style.dogImage} />
+      <p>Name:{dog.name}</p>
+      <p>Temperaments:{dog.temperaments}</p>
+      {/* <p>Height:{dog.height}cm</p> */}
+      <p>Weight:{dog.weight}kg</p>
+      {/* <p>LifeSpan:{dog.life_span}</p> */}
     </div>
   );
 };

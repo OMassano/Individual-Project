@@ -1,9 +1,7 @@
-const Form = () => {
-  return (
-    <>
-      <h1>Form View</h1>
-    </>
-  );
-};
+const Form = () =>{
+    return(
+        <h1>Form</h1>
+    )
+}
 
-export default Form;
+export default Form
