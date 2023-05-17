@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
 const Card = ({ dog, onClose }) => {
-  const { id, image, name, temperaments, weight } = dog;
+  const { id, image, name, temperament, weight } = dog;
 
   return (
     <div className={style.card}>
@@ -12,7 +12,7 @@ const Card = ({ dog, onClose }) => {
       <Link to={`/dogdetail/${id}`}>
         <p>Name: {name}</p>
       </Link>
-      <p>Temperaments: {temperaments}</p>
+      <p>Temperaments: {temperament}</p>
       <p>Weight: {weight}kg</p>
     </div>
   );

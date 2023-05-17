@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  
   const onClose = (id) => {
     dispatch(closeDog(id));
   };

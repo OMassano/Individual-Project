@@ -12,6 +12,7 @@ const Detail = () => {
   }, [dispatch, id]);
 
   const dog = useSelector((state) => state.dog[0]);
+  console.log(dog)
   console.log(dog.temperament);
   if (!dog) {
     return <div>Loading...</div>;

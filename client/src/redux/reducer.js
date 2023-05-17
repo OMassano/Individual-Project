@@ -1,8 +1,9 @@
-import { GET_DOG, GET_DOGS, CLOSE_DOG, PREVIEW_DOG } from "./action";
+import { GET_DOG, GET_DOGS, CLOSE_DOG, PREVIEW_DOG, GET_DOG_NAME } from "./action";
 
 const initialState = {
   dogs: [],
-  dog: null, // Update the property name to "dog"
+  dog: [], // Update the property name to "dog"
+  searchDog:[],
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,9 @@ const reducer = (state = initialState, action) => {
       return { ...state, dogs: updatedDogs };
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload };
+    case GET_DOG_NAME:
+      return{...state, searchDog: action.payload}
+      
     default:
       return state;
   }
