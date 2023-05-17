@@ -10,7 +10,7 @@ const getAllDogsHandler = async (req, res) => {
       height: dog.height,
       weight: dog.weight,
       life_span: dog.life_span,
-      temperaments: dog.temperament,
+      temperaments: dog.temperament.join(", "),
     }));
     console.log(dogs);
     res.status(200).json(dogs);

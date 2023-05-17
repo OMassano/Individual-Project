@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   const location = useLocation();
+
   return (
     <div className="App">
       {location.pathname !== "/" && <NavBar/>}
@@ -12,7 +13,7 @@ function App() {
         <Route exact path="/" element={<Landing />}/>
         <Route path= "/home" element={<Home/>}/>
         <Route path="/create-dog" element={<Form/>}/>
-        <Route path="/dogdetail" element={<Detail/>}/>
+        <Route path="/dogdetail/:id" element={<Detail/>}/>
         <Route path="/about" element={<About/>}/>      
       </Routes>
     </div>

@@ -1,14 +1,19 @@
-//should show the info of each dog from cards and give us a link to open dog detail
+import React from "react";
+import { Link } from "react-router-dom";
 import style from "./Card.module.css";
-const Card = (dog) => {
+
+const Card = ({ dog, onClose }) => {
+  const { id, image, name, temperaments, weight } = dog;
+
   return (
     <div className={style.card}>
-      <img src={dog.image} alt={dog.name} className={style.dogImage} />
-      <p>Name:{dog.name}</p>
-      <p>Temperaments:{dog.temperaments}</p>
-      {/* <p>Height:{dog.height}cm</p> */}
-      <p>Weight:{dog.weight}kg</p>
-      {/* <p>LifeSpan:{dog.life_span}</p> */}
+      <button onClick={() => onClose(id)}>X</button>
+      <img src={image} alt={name} className={style.dogImage} />
+      <Link to={`/dogdetail/${id}`}>
+        <p>Name: {name}</p>
+      </Link>
+      <p>Temperaments: {temperaments}</p>
+      <p>Weight: {weight}kg</p>
     </div>
   );
 };

@@ -1,26 +1,16 @@
-//should receive array of dogs and for each dog render the card component
+import React from "react";
+import { useSelector } from "react-redux";
 import Card from "../Cards/Card";
 import style from "./CardsContainer.module.css";
-import { useSelector } from "react-redux";
 
+const CardsContainer = ({ onClose }) => {
+  const dogs = useSelector((state) => state.dogs);
 
-const CardsContainer = () => {
-    const dogs = useSelector(state => state.dogs)
   return (
     <div className={style.container}>
-      {dogs.map((dog) => {
-        return (
-          <Card
-            id={dog.id}
-            image={dog.image}
-            name={dog.name}
-            height={dog.height}
-            weight={dog.weight}
-            life_span={dog.life_span}
-            temperaments={dog.temperaments.join(", ")}
-          />
-        );
-      })}
+      {dogs.map((dog) => (
+        <Card key={dog.id} dog={dog} onClose={onClose} />
+      ))}
     </div>
   );
 };
