@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
-
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getDogByName } from "../../redux/action";
 const NavBar = () => {
-    const onSearch = ()=>{
-        alert("here is where the search would happen")
+    const dispatch = useDispatch();
+    const onSearch = (name)=>{
+        dispatch(getDogByName(name))
     }
   return (
     <div className={style.container}>

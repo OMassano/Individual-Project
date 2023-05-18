@@ -1,8 +1,14 @@
-import { GET_DOG, GET_DOGS, CLOSE_DOG, PREVIEW_DOG, GET_DOG_NAME } from "./action";
+import {
+  GET_DOG,
+  GET_DOGS,
+  CLOSE_DOG,
+  PREVIEW_DOG,
+  GET_DOG_NAME,
+} from "./action";
 
 const initialState = {
   dogs: [],
-  dog: [], // Update the property name to "dog" 
+  dog: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,14 +16,14 @@ const reducer = (state = initialState, action) => {
     case GET_DOGS:
       return { ...state, dogs: action.payload };
     case GET_DOG:
-      return {...state, dog: action.payload };
+      return { ...state, dog: action.payload };
     case CLOSE_DOG:
-      return { ...state, dogs: state.dogs.filter((dog) => dog.id !== action.payload), dog: [] }; // Set "dog" to [] when closing in detail
+      const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
+      return { ...state, dogs: updatedDogs, dog: [] };
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload };
     case GET_DOG_NAME:
-      return{...state, dog:action.payload}
-      
+      return { ...state, dogs: { ...state.dog, ...action.payload } };
     default:
       return state;
   }
