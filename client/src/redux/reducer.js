@@ -11,10 +11,10 @@ const reducer = (state = initialState, action) => {
     case GET_DOGS:
       return { ...state, dogs: action.payload };
     case GET_DOG:
-      return {...state, dog: action.payload }; // Update the property name to "dog"
+      return {...state, dog: action.payload };
     case CLOSE_DOG:
       const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
-      return { ...state, dogs: updatedDogs, dog: [] }; // Set "dog" to null when closing
+      return { ...state, dogs: updatedDogs, dog: [] }; // Set "dog" to [] when closing in detail
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload };
     case GET_DOG_NAME:
