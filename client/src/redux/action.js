@@ -23,9 +23,9 @@ export const getDogById = (id) => {
   };
 };
 
-export const getDogByName = (name)=>{
+export const getDogByName = (searchName)=>{
   return async function(dispatch){
-    const localDogs = await axios.get(`http://localhost:5002/dogs/?name=${name}`)
+    const localDogs = await axios.get(`http://localhost:5002/dogs/?name=${searchName}`)
 
     const dogData = localDogs.data
     dispatch({type:GET_DOG_NAME, payload: dogData})

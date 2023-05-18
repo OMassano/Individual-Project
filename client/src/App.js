@@ -8,13 +8,13 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/" && <NavBar/>}
+      {location.pathname !== "/" && <NavBar />}
       <Routes>
-        <Route exact path="/" element={<Landing />}/>
-        <Route path= "/home" element={<Home/>}/>
-        <Route path="/create-dog" element={<Form/>}/>
-        <Route path="/dogdetail/:id" element={<Detail/>}/>
-        <Route path="/about" element={<About/>}/>      
+        <Route exact path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/create-dog" element={<Form />} />
+        <Route path="/dogdetail/:id" element={<Detail />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
