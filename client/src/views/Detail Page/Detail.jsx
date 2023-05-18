@@ -20,13 +20,13 @@ const Detail = () => {
   return (
     <div>
       <div>
-        <img src={dog.image} alt={dog.name} />
-        <h2>Name: {dog.name}</h2>
-        <p>ID: {dog.id}</p>
-        <p>Height: {dog.height}</p>
-        <p>Weight: {dog.weight}</p>
-        <p>Temperaments: {dog.temperament.join(", ")}</p>
-        <p>LifeSpan: {dog.life_span}</p>
+        <img src={dog?.image} alt={dog?.name} />
+        <h2>Name: {dog?.name}</h2>
+        <p>ID: {dog?.id}</p>
+        <p>Height: {dog?.height}</p>
+        <p>Weight: {dog?.weight}</p>
+        <p>Temperaments: {dog?.temperament.join(", ")}</p>
+        <p>LifeSpan: {dog?.life_span}</p>
       </div>
     </div>
   );

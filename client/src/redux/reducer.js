@@ -3,7 +3,7 @@ import { GET_DOG, GET_DOGS, CLOSE_DOG, PREVIEW_DOG, GET_DOG_NAME } from "./actio
 const initialState = {
   dogs: [],
   dog: [], // Update the property name to "dog"
-  searchDog:[],
+  searchDog:[], 
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     case GET_DOGS:
       return { ...state, dogs: action.payload };
     case GET_DOG:
-      return { ...state, dog: action.payload }; // Update the property name to "dog"
+      return {...state, dog: action.payload }; // Update the property name to "dog"
     case CLOSE_DOG:
       const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
       return { ...state, dogs: updatedDogs };
