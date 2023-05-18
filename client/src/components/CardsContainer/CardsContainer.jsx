@@ -2,8 +2,9 @@ import React from "react";
 import Card from "../Cards/Card";
 import style from "./CardsContainer.module.css";
 import { useSelector } from "react-redux";
-const CardsContainer = ({onClose }) => {
+const CardsContainer = ({ onClose }) => {
   const dogs = useSelector((state) => state.dogs);
+  console.log(dogs)
   return (
     <div className={style.container}>
       {dogs.map((dog) => (

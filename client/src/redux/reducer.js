@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload };
     case GET_DOG_NAME:
-      return { ...state, dogs: { ...state.dog, ...action.payload } };
+      return { ...state, dogs: [...state.dogs, ...action.payload] };
     default:
       return state;
   }
