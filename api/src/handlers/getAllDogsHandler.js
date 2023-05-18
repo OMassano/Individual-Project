@@ -12,7 +12,7 @@ const getAllDogsHandler = async (req, res) => {
       life_span: dog.life_span,
       temperament: dog.temperament.join(", "),
     }));
-    console.log(dogs);
+    // console.log(dogs);
     res.status(200).json(dogs);
   } catch (error) {
     res.status(400).json({ error: error.message });

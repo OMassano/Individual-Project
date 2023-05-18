@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
       return {...state, dog: action.payload }; // Update the property name to "dog"
     case CLOSE_DOG:
       const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
-      return { ...state, dogs: updatedDogs };
+      return { ...state, dogs: updatedDogs, dog: [] }; // Set "dog" to null when closing
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload };
     case GET_DOG_NAME:

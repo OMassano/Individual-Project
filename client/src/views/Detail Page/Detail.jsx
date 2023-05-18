@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDogById } from "../../redux/action";
+import { getDogById, closeDog } from "../../redux/action";
 import { useEffect } from "react";
 const Detail = () => {
   const dispatch = useDispatch();
@@ -9,11 +9,14 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getDogById(id));
+    return () => {
+      dispatch(closeDog()); // Reset the dog state to null when leaving the detail page
+    };
   }, [dispatch, id]);
 
   const dog = useSelector((state) => state.dog[0]);
-  console.log(dog)
-  console.log(dog.temperament);
+  // console.log(dog)
+  // console.log(dog.temperament);
   if (!dog) {
     return <div>Loading...</div>;
   }
