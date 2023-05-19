@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getDogByName } from "../../redux/action";
 
@@ -8,11 +8,18 @@ const SearchBar = () => {
 
   const handleChange = (event) => {
     setName(event.target.value);
+    console.log(event.target.value)
   };
 
+  const dogs = useSelector(state => state.dogs)
+
   const onSearch = () => {
-    dispatch(getDogByName(name));
+    const existingDog = dogs.find((dog) => dog.name === name);
+    if (!existingDog) {
+      dispatch(getDogByName(name));
+    }
   };
+  
 
   return (
     <div>

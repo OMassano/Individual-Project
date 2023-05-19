@@ -14,8 +14,7 @@ const Home = () => {
   };
 
   const dogs = useSelector((state) => state.dogs);
-  if (!dogs) return <div>Loading....</div>;
-  
+
   return (
     <div>
       <h1>Home</h1>

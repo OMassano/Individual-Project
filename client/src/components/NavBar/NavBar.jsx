@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getDogByName } from "../../redux/action";
 const NavBar = () => {

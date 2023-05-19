@@ -12,7 +12,7 @@ const Card = ({ dog, onClose }) => {
       <Link to={`/dogdetail/${id}`}>
         <p>Name: {name}</p>
       </Link>
-      <p>Temperaments: {temperament}</p>
+      <p>Temperaments: {temperament.join(", ")}</p>
       <p>Weight: {weight}kg</p>
     </div>
   );
