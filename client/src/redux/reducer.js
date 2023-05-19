@@ -8,6 +8,7 @@ import {
   FILTER,
   ORDER_NAME,
   ORDER_WEIGHT,
+  GET_TEMPS,
 } from "./action";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   dogs: [],
   dog: [],
   dogsCopy: [],
+  temperaments: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -43,6 +45,9 @@ const reducer = (state = initialState, action) => {
     case CLOSE_DOGS:
       return { dogs: action.payload, dogsCopy: action.payload };
 
+    case GET_TEMPS:
+      return { ...state, temperaments: action.payload };
+
     case FILTER:
       const dogsFiltered = state.dogsCopy.filter(
         (dog) => dog.temperament === action.payload
@@ -51,14 +56,16 @@ const reducer = (state = initialState, action) => {
 
     case ORDER_NAME:
       const dogsCopied = [...state.dogsCopy]; // create a copy of the dogs array
-      if (action.payload === "A-Z") {//ASCENDING
+      if (action.payload === "A-Z") {
+        //ASCENDING
         dogsCopied.sort((a, b) => {
           if (a.name < b.name) return -1;
           if (a.name > b.name) return 1;
           return 0;
         });
       } else {
-        dogsCopied.sort((a, b) => {//DESCENDING
+        dogsCopied.sort((a, b) => {
+          //DESCENDING
           if (b.name < a.name) return -1;
           if (b.name > a.name) return 1;
           return 0;

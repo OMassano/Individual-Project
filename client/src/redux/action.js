@@ -9,6 +9,7 @@ export const CLOSE_DOGS = "CLOSE_DOGS";
 export const FILTER = "FILTER";
 export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
+export const GET_TEMPS = "GET_TEMPS";
 
 export const getDogs = () => {
   return async function (dispatch) {
@@ -66,4 +67,11 @@ export const orderDogsName = (order) => {
 //----------------------------------------------------------------------------------------------------------------------------
 export const orderDogsWeight = (order) => {
   return { type: ORDER_WEIGHT, payload: order };
+};
+//----------------------------------------------------------------------------------------------------------------------------
+export const getTemps = () => {
+  return async function (dispatch) {
+    const localTemps = await axios.get("http://localhost:5002/temperaments");
+    dispatch({ type: GET_TEMPS, payload: localTemps.data });
+  };
 };

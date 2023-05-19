@@ -5,7 +5,7 @@ import NavBar from "./components/Navbar/NavBar";
 
 function App() {
   const location = useLocation();
-
+  
   return (
     <div className="App">
       {location.pathname !== "/" && <NavBar />}
