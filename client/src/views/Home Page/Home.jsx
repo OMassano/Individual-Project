@@ -16,6 +16,7 @@ const Home = () => {
   const closeAll = () =>{
     dispatch(closeAllDogs())
   }
+  
   return (
     <div>
       <h1>Home</h1>

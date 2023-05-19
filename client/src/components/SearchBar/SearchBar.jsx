@@ -18,7 +18,11 @@ const SearchBar = () => {
       (dog) => dog.name.toLowerCase() === name.toLowerCase() //checking to see if i already searched up dog
     );
     if (!existingDog) {
-      dispatch(getDogByName(name));
+      dispatch(getDogByName(name)).catch(() => {
+        window.alert(
+          "That dog does not exist! Please check spelling or attempt to search for a different dog breed."
+        );
+      });
     } else {
       alert("You have already searched up that name!");
     }

@@ -6,6 +6,7 @@ export const CLOSE_DOG = "CLOSE_DOG";
 export const PREVIEW_DOG = "PREVIEW_DOG";
 export const GET_DOG_NAME = "GET_DOG_NAME";
 export const CLOSE_DOGS = "CLOSE_DOGS";
+export const FILTER = "FILTER"
 
 export const getDogs = () => {
   return async function (dispatch) {
@@ -35,6 +36,7 @@ export const getDogByName = (searchName) => {
     dispatch({ type: GET_DOG_NAME, payload: dogData });
   };
 };
+
 export const closeDog = (id) => {
   return { type: CLOSE_DOG, payload: id };
 };
@@ -51,3 +53,7 @@ export const previewDogs = () => {
 export const closeAllDogs = () => {
   return { type: CLOSE_DOGS, payload: [] };
 };
+
+export const filterDOgs = (temp) =>{
+  return{ type:FILTER, payload:temp}
+}
