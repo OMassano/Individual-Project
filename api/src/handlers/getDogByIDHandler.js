@@ -4,10 +4,10 @@ const getDogByIDHandler = async (req, res) => {
   const { id } = req.params;
 
   const source = isNaN(id) ? "db" : "api";
-  console.log(source); // source is working
+  // console.log(source); // source is working
 
   try {
-    console.log(id);
+    // console.log(id);
     const dogsId = await getDogById(id, source);
     res.status(200).json(dogsId);
   } catch (error) {

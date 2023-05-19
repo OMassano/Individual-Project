@@ -13,9 +13,9 @@ const getAllTemperaments = async () => {
     .map((temp) => temp.trim()) // getting rid of spaces
     .map((temp) => {
       if (tempArray.includes(temp)) {
-        // console.log(
-        //   `"${temp}" is a Temperament that already exists in this database!`
-        // );
+        console.log(
+          `"${temp}" is a Temperament that already exists in this database!`
+        );
         return null;
       } else {
         tempArray.push(temp);
