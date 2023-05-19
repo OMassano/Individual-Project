@@ -20,7 +20,7 @@ const SearchBar = () => {
     if (!existingDog) {
       dispatch(getDogByName(name)).catch(() => {
         window.alert(
-          "That dog does not exist! Please check spelling or attempt to search for a different dog breed."
+          "That dog does not exist! Please attempt to search for a different dog breed or add the dog yourself in our new form section!"
         );
       });
     } else {
