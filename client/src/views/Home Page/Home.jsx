@@ -13,13 +13,11 @@ const Home = () => {
     dispatch(getDogs());
   };
 
-  const dogs = useSelector((state) => state.dogs);
-
   return (
     <div>
       <h1>Home</h1>
       <button onClick={getAllDogs}>Load all dogs</button>
-      <CardsContainer dog={dogs} onClose={onClose} />
+      <CardsContainer onClose={onClose} />
     </div>
   );
 };

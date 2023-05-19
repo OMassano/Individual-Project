@@ -8,18 +8,21 @@ const SearchBar = () => {
 
   const handleChange = (event) => {
     setName(event.target.value);
-    console.log(event.target.value)
+    console.log(event.target.value);
   };
 
-  const dogs = useSelector(state => state.dogs)
+  const dogs = useSelector((state) => state.dogs);
 
   const onSearch = () => {
-    const existingDog = dogs.find((dog) => dog.name === name);
+    const existingDog = dogs.find(
+      (dog) => dog.name.toLowerCase() === name.toLowerCase() //checking to see if i already searched up dog
+    );
     if (!existingDog) {
       dispatch(getDogByName(name));
+    } else {
+      alert("You have already searched up that name!");
     }
   };
-  
 
   return (
     <div>
