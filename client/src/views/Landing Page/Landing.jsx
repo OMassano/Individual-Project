@@ -2,7 +2,7 @@ import style from './Landing.module.css'
 import {useNavigate} from "react-router-dom"
 import { previewDogs } from '../../redux/action'
 import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
+
 const Landing = () =>{
     const navigate = useNavigate();
     const dispatch = useDispatch();

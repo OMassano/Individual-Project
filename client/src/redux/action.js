@@ -56,7 +56,7 @@ export const closeAllDogs = () => {
   return { type: CLOSE_DOGS, payload: [] };
 };
 //----------------------------------------------------------------------------------------------------------------------------
-export const filterDOgs = (temperament) => {
+export const filterDogs = (temperament) => {
   return { type: FILTER, payload: temperament };
 };
 //----------------------------------------------------------------------------------------------------------------------------
