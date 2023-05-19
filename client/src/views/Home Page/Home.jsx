@@ -1,8 +1,7 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { closeDog, getDogs, previewDogs } from "../../redux/action";
-import { useEffect } from "react";
-import Card from "../../components/Cards/Card";
+import { closeDog, getDogs } from "../../redux/action";
+
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -14,16 +13,14 @@ const Home = () => {
     dispatch(getDogs());
   };
 
-  useEffect(() => {
-    dispatch(previewDogs());
-  }, [dispatch]); // Add an empty dependency array to run the effect only once
-
-  const dogs = useSelector(state => state.dogs)
+  const dogs = useSelector((state) => state.dogs);
+  if (!dogs) return <div>Loading....</div>;
+  
   return (
     <div>
       <h1>Home</h1>
       <button onClick={getAllDogs}>Load all dogs</button>
-      <CardsContainer dog={dogs}onClose={onClose} />
+      <CardsContainer dog={dogs} onClose={onClose} />
     </div>
   );
 };
