@@ -4,6 +4,7 @@ import {
   CLOSE_DOG,
   PREVIEW_DOG,
   GET_DOG_NAME,
+  CLOSE_DOGS,
 } from "./action";
 
 const initialState = {
@@ -24,6 +25,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, dogs: action.payload };
     case GET_DOG_NAME:
       return { ...state, dogs: [...state.dogs, ...action.payload] };
+    case CLOSE_DOGS:
+      return {dogs: action.payload};
     default:
       return state;
   }
