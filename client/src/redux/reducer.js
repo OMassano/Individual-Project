@@ -16,7 +16,7 @@ const initialState = {
   // without stepping on its values
   dogs: [],
   dog: [],
-  dogsCopy: [],
+  dogsCopy: [],// in my cases like filter, i don't change dogsCopy so that it continues to see everything prev in dogs
   temperaments: [],
 };
 
@@ -53,10 +53,10 @@ const reducer = (state = initialState, action) => {
         // each dog has multiple temps
         (dog) => dog.temperament.some((temp) => temp === action.payload) // if it finds one out of all the temperaments
       );
-      return { ...state, dogs: dogsFiltered, dogsCopy: dogsFiltered };
+      return { ...state, dogs: dogsFiltered };
 
     case ORDER_NAME:
-      const dogsCopied = [...state.dogsCopy]; // create a copy of the dogs array
+      const dogsCopied = [...state.dogs]; // create a copy of the dogs array
       if (action.payload === "A-Z") {
         //ASCENDING
         dogsCopied.sort((a, b) => {
@@ -72,9 +72,9 @@ const reducer = (state = initialState, action) => {
           return 0;
         });
       }
-      return { ...state, dogs: dogsCopied, dogsCopy: dogsCopied };
+      return { ...state, dogs: dogsCopied };
     case ORDER_WEIGHT:
-      const dogsCopied2 = [...state.dogsCopy];
+      const dogsCopied2 = [...state.dogs];
       if (action.payload === "min") {
         dogsCopied2.sort((a, b) => {
           if (
@@ -85,7 +85,8 @@ const reducer = (state = initialState, action) => {
             parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])
           )
             return 1;
-          else {// if they are the same I check my max value
+          else {
+            // if they are the same I check my max value
             if (
               parseInt(a.weight.split("-")[1]) <
               parseInt(b.weight.split("-")[1])
@@ -109,7 +110,8 @@ const reducer = (state = initialState, action) => {
             parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])
           )
             return 1;
-          else {// if they are the same i check my max value
+          else {
+            // if they are the same i check my max value
             if (
               parseInt(a.weight.split("-")[1]) >
               parseInt(b.weight.split("-")[1])
@@ -124,7 +126,7 @@ const reducer = (state = initialState, action) => {
           }
         });
       }
-      return { ...state, dogs: dogsCopied2, dogsCopy: dogsCopied2 };
+      return { ...state, dogs: dogsCopied2 };
 
     default:
       return state;
