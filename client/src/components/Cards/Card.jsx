@@ -5,15 +5,18 @@ import style from "./Card.module.css";
 const Card = ({ dog, onClose }) => {
   const { id, image, name, temperament, weight } = dog;
 
+
   return (
     <div className={style.card}>
-      <button onClick={() => onClose(id)}>X</button>
-      <img src={image} alt={name} className={style.dogImage} />
-      <Link to={`/dogdetail/${id}`}>
-        <p>Name: {name}</p>
+      <button onClick={() => onClose(id)} className={style.button}>X</button>
+      <Link to={`/dogdetail/${id}`}className={style.link}>
+        <div>
+        <p className={style.dogName}>{name}</p>
+        <img src={image} alt={name} className={style.dogImage} />
+        <p>Temperaments: {temperament.join(", ")}</p>
+        <p>Weight: {weight}kg</p>   
+        </div>
       </Link>
-      <p>Temperaments: {temperament.join(", ")}</p>
-      <p>Weight: {weight}kg</p>
     </div>
   );
 };

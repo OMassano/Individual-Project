@@ -31,8 +31,8 @@ body {
     font-variant: small-caps;
     text-transform: none;
     display: flex;
-    align-items: center; /* Added property */
-    justify-content: center; /* Added property */
+    align-items: center; 
+    justify-content: center; 
     background-image: linear-gradient(
       to right,
       rgb(153, 114, 80) 0%,

@@ -1,11 +1,40 @@
-.card{
-    border: 1px solid black;
-    width: fit-content;
-    height:fit-content;
-    border-radius: 10px;
+.card {
+  border: 1px solid rgb(153, 114, 80);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: rgb(184, 161, 131);
+  position: relative;
 }
 
-.dogImage{
-    width: 200px;
-    height: auto;
+.card:hover {
+  box-shadow: rgb(153, 114, 80) 6px 5px 15px 5px;
+}
+.dogName {
+  font-size: x-large;
+  font-weight: 600;
+  color: rgb(59, 44, 34);
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+.dogImage {
+  width: 200px;
+  height: auto;
+  box-shadow: rgb(59, 44, 34) 6px 5px 15px 5px;
+}
+
+.button {
+  background-color: rgb(127, 79, 36);
+  color: white;
+  font-family: "Arial Black", Gadget, sans-serif;
+  border-radius: 8px;
+  position: absolute; /* Add position absolute to the button */
+  top: 10px; /* Adjust the top value to position the button vertically */
+  right: 10px;
+}
+.button:hover {
+  box-shadow: 0px 0px 33px 4px rgba(59, 44, 34, 0.3);
 }

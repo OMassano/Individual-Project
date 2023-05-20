@@ -12,6 +12,7 @@
     flex-direction: column;
     line-height: 1.5;
     position: relative;
+    font-family: "Palatino Linotype", serif;
   }
   body {
     margin: 0;
