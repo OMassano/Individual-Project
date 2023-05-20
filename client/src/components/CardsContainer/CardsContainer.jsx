@@ -8,7 +8,7 @@ const CardsContainer = ({ onClose }) => {
 
   return (
     <div className={style.container}>
-      {dogs.map((dog) => (
+      {dogs && dogs.map((dog) => (
         <Card key={dog.id} dog={dog} onClose={onClose} />
       ))}
     </div>

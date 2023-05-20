@@ -49,7 +49,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, temperaments: action.payload };
 
     case FILTER:
-      const dogsFiltered = state.dogsCopy.filter(// each dog has multiple temps
+      const dogsFiltered = state.dogsCopy.filter(
+        // each dog has multiple temps
         (dog) => dog.temperament.some((temp) => temp === action.payload) // if it finds one out of all the temperaments
       );
       return { ...state, dogs: dogsFiltered, dogsCopy: dogsFiltered };
@@ -72,31 +73,58 @@ const reducer = (state = initialState, action) => {
         });
       }
       return { ...state, dogs: dogsCopied, dogsCopy: dogsCopied };
-
     case ORDER_WEIGHT:
-      const dogsCopied2 = [...state.dogsCopy]
-      if(action.payload = "min"){
-        dogsCopied2.sort((a, b)=>{
-          //need to see if there is a "-" for each, if there is sort before it, if not just use that
-          if (a.weight.includes("-")) a.weight = a.weight.split("-")[0]
-          if (b.weight.includes("-")) b.weight = b.weight.split("-")[0]
-
-          if (b.name < a.name) return -1;
-          if (b.name > a.name) return 1;
-          return 0;
-        })
+      const dogsCopied2 = [...state.dogsCopy];
+      if (action.payload === "min") {
+        dogsCopied2.sort((a, b) => {
+          if (
+            parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])
+          )
+            return -1;
+          else if (
+            parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])
+          )
+            return 1;
+          else {// if they are the same I check my max value
+            if (
+              parseInt(a.weight.split("-")[1]) <
+              parseInt(b.weight.split("-")[1])
+            )
+              return -1;
+            else if (
+              parseInt(a.weight.split("-")[1]) >
+              parseInt(b.weight.split("-")[1])
+            )
+              return 1;
+            else return 0;
+          }
+        });
+      } else {
+        dogsCopied2.sort((a, b) => {
+          if (
+            parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])
+          )
+            return -1;
+          else if (
+            parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])
+          )
+            return 1;
+          else {// if they are the same i check my max value
+            if (
+              parseInt(a.weight.split("-")[1]) >
+              parseInt(b.weight.split("-")[1])
+            )
+              return -1;
+            else if (
+              parseInt(a.weight.split("-")[1]) <
+              parseInt(b.weight.split("-")[1])
+            )
+              return 1;
+            else return 0;
+          }
+        });
       }
-      else{
-        dogsCopied2.sort((a, b)=>{
-          if (a.weight.includes("-")) a.weight = a.weight.split("-")[0]
-          if (b.weight.includes("-")) b.weight = b.weight.split("-")[0]
-
-          if (b.name > a.name) return -1;
-          if (b.name < a.name) return 1;
-          return 0;
-        })
-      }
-      return {...state, dogs: dogsCopied2};
+      return { ...state, dogs: dogsCopied2, dogsCopy: dogsCopied2 };
 
     default:
       return state;

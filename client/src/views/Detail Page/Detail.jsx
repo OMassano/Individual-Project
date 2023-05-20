@@ -14,10 +14,12 @@ const Detail = () => {
     };
   }, [dispatch, id]);
 
-  const dog = useSelector((state) => state.dog[0]);
-  if (!dog) {
+  const dogState = useSelector((state) => state.dog);
+  if (!dogState || dogState.length === 0) {
     return <div>Loading...</div>;
   }
+
+  const dog = dogState[0]
   return (
     <div>
       <div>
