@@ -1,10 +1,13 @@
 .card {
   border: 1px solid rgb(153, 114, 80);
-  width: fit-content;
-  height: fit-content;
+  width: 400px;
+  height: 400px;
   border-radius: 10px;
   background-color: rgb(184, 161, 131);
   position: relative;
+  overflow: hidden;
+  word-wrap: break-word;
+  /* margin-top: 20px; */
 }
 
 .card:hover {
@@ -21,8 +24,8 @@
   color: black;
 }
 .dogImage {
-  width: 200px;
-  height: auto;
+  width: auto;
+  height: 180px;
   box-shadow: rgb(59, 44, 34) 6px 5px 15px 5px;
 }
 

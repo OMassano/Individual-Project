@@ -5,4 +5,8 @@
     border-radius: 15px;
     flex-wrap: wrap;
     gap: 1em;
+    background-color: rgb(194, 197, 170);
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding-top: 20px;
 }
