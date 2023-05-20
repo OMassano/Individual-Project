@@ -72,6 +72,12 @@ export const orderDogsWeight = (order) => {
 export const getTemps = () => {
   return async function (dispatch) {
     const localTemps = await axios.get("http://localhost:5002/temperaments");
-    dispatch({ type: GET_TEMPS, payload: localTemps.data });
+
+    const tempData = localTemps.data.sort((a, b) => {// sorting data in alphabetical order
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+    dispatch({ type: GET_TEMPS, payload: tempData });
   };
 };

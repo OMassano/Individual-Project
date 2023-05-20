@@ -4,10 +4,10 @@ import {
   closeDog,
   closeAllDogs,
   getDogs,
-  // filterDogs,
+  filterDogs,
   orderDogsName,
   // orderDogsWeight,
-  // getTemps,
+  getTemps,
 } from "../../redux/action";
 
 const Home = () => {
@@ -29,13 +29,29 @@ const Home = () => {
     dispatch(orderDogsName(event.target.value));
   };
 
+  const viewTemps = () => {
+    dispatch(getTemps());
+  };
+  const temperaments = useSelector((state) => state.temperaments);
+  console.log(temperaments); // works fine
+
+  const handleFilter = (event) => {
+    const temperament = event.target.value;
+    dispatch(filterDogs(temperament));
+  };
 
   return (
     <div>
       <h1>Home</h1>
       <button onClick={getAllDogs}>Load all dogs</button>
       <button onClick={closeAll}>Close all dogs</button>
+      <button onClick={viewTemps}>Click to see Filters</button>
 
+      <select onChange={handleFilter}>
+        {temperaments.map((temp) =>
+          temp.name ? <option key={temp.id}>{temp.name}</option> : null
+        )}
+      </select>
 
       <select onChange={handleOrderName}>
         <option value="A-Z">A-Z</option>
