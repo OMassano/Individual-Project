@@ -1,0 +1,12 @@
+.orders {
+}
+.button {
+  background-color: rgb(101, 109, 74);
+  color: white;
+  font-family: "Arial Black", Gadget, sans-serif;
+  border-radius: 8px;
+  margin-top: 20px;
+  justify-content: center;
+  margin-right: 100px;
+  margin-left: 100px;
+}

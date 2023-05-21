@@ -1,12 +1,12 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useDispatch, useSelector } from "react-redux";
+import style from "./Home.module.css";
 import {
   closeDog,
   closeAllDogs,
   getDogs,
   filterDogs,
   orderDogsName,
-  // orderDogsWeight,
   getTemps,
   orderDogsWeight,
 } from "../../redux/action";
@@ -46,25 +46,30 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
-      <button onClick={getAllDogs}>Load all dogs</button>
-      <button onClick={closeAll}>Close all dogs</button>
+      <div className={style.buttoncontainer}>
 
-      <select onChange={handleFilter} onClick={viewTemps}>
-        {temperaments && temperaments.map((temp) =>
-          temp.name ? <option key={temp.id}>{temp.name}</option> : null
-        )}
-      </select>
+        <button onClick={getAllDogs} className={style.button}>Load all dogs</button>
+        <button onClick={closeAll} className={style.button}>Close all dogs</button>
+      </div>
 
-      <select onChange={handleOrderName}>
-        <option value="A-Z">A-Z</option>
-        <option value="Z-A">Z-A</option>
-      </select>
+      <div className={style.order}>
+        <select onChange={handleFilter} onClick={viewTemps}>
+          {temperaments &&
+            temperaments.map((temp) =>
+              temp.name ? <option key={temp.id}>{temp.name}</option> : null
+            )}
+        </select>
 
-      <select onChange={handleOrderWeight}>
-        <option value="min">min</option>
-        <option value="max">max</option>
-      </select>
+        <select onChange={handleOrderName}>
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+        </select>
+
+        <select onChange={handleOrderWeight}>
+          <option value="min">min</option>
+          <option value="max">max</option>
+        </select>
+      </div>
 
       <CardsContainer onClose={onClose} />
     </div>
