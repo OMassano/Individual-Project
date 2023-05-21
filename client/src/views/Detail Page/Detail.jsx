@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDogById, closeDog } from "../../redux/action";
 import { useEffect } from "react";
-import style from "./Detail.module.css"
+import style from "./Detail.module.css";
 const Detail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -20,17 +20,19 @@ const Detail = () => {
     return <div>Loading...</div>;
   }
 
-  const dog = dogState[0]
+  const dog = dogState[0];
   return (
     <div className={style.container}>
       <div>
-        <img src={dog?.image} alt={dog?.name} />
-        <h2>Name: {dog?.name}</h2>
-        <p>ID: {dog?.id}</p>
-        <p>Height: {dog?.height}</p>
-        <p>Weight: {dog?.weight}</p>
-        <p>Temperaments: {dog?.temperament.join(", ")}</p>
-        <p>LifeSpan: {dog?.life_span}</p>
+          <img src={dog?.image} alt={dog?.name} className={style.image}/>
+      </div>
+        <div className={style.info}>
+          <h2 className={style.name}>{dog?.name}</h2>
+          <p>ID: {dog?.id}</p>
+          <p>Height: {dog?.height}cm</p>
+          <p>Weight: {dog?.weight}kg</p>
+          <p>Temperaments: {dog?.temperament.join(", ")}</p>
+          <p>LifeSpan: {dog?.life_span}</p>
       </div>
     </div>
   );
