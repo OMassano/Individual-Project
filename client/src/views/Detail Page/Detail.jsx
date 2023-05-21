@@ -17,7 +17,7 @@ const Detail = () => {
 
   const dogState = useSelector((state) => state.dog);
   if (!dogState || dogState.length === 0) {
-    return <div>Loading...</div>;
+    return <div className={style.loading}>Loading...</div>;
   }
 
   const dog = dogState[0];

@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(170, 177, 141);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid rgb(65, 72, 51);
+  }
+  
+.title {
+    margin-bottom: 20px; /* Add margin-bottom to create spacing between title and paragraph */
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
