@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDogById, closeDog } from "../../redux/action";
 import { useEffect } from "react";
+import style from "./Detail.module.css"
 const Detail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -21,7 +22,7 @@ const Detail = () => {
 
   const dog = dogState[0]
   return (
-    <div>
+    <div className={style.container}>
       <div>
         <img src={dog?.image} alt={dog?.name} />
         <h2>Name: {dog?.name}</h2>

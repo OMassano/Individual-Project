@@ -73,12 +73,13 @@ const reducer = (state = initialState, action) => {
         });
       }
       return { ...state, dogs: dogsCopied };
+
     case ORDER_WEIGHT:
-      const dogsCopied2 = [...state.dogs];
+      const dogsCopied2 = [...state.dogs];// create copy
       if (action.payload === "min") {
         dogsCopied2.sort((a, b) => {
           if (
-            parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])
+            parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])// seeing if first number is bigger
           )
             return -1;
           else if (
@@ -87,41 +88,19 @@ const reducer = (state = initialState, action) => {
             return 1;
           else {
             // if they are the same I check my max value
-            if (
-              parseInt(a.weight.split("-")[1]) <
-              parseInt(b.weight.split("-")[1])
-            )
-              return -1;
-            else if (
-              parseInt(a.weight.split("-")[1]) >
-              parseInt(b.weight.split("-")[1])
-            )
-              return 1;
+            if (parseInt(a.weight.split("-")[1]) <parseInt(b.weight.split("-")[1]))return -1;
+            else if (parseInt(a.weight.split("-")[1]) > parseInt(b.weight.split("-")[1]))return 1;
             else return 0;
           }
         });
-      } else {
+      } else {// if i receivied max
         dogsCopied2.sort((a, b) => {
-          if (
-            parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])
-          )
-            return -1;
-          else if (
-            parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])
-          )
-            return 1;
+          if (parseInt(a.weight.split("-")[1]) > parseInt(b.weight.split("-")[1]))return -1;
+          else if (parseInt(a.weight.split("-")[1]) < parseInt(b.weight.split("-")[1]))return 1;
           else {
-            // if they are the same i check my max value
-            if (
-              parseInt(a.weight.split("-")[1]) >
-              parseInt(b.weight.split("-")[1])
-            )
-              return -1;
-            else if (
-              parseInt(a.weight.split("-")[1]) <
-              parseInt(b.weight.split("-")[1])
-            )
-              return 1;
+            // if they are the same i check my min value
+            if (parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])) return -1;
+            else if (parseInt(a.weight.split("-")[0]) < parseInt(b.weight.split("-")[0])) return 1;
             else return 0;
           }
         });
