@@ -1,13 +1,11 @@
 .container{
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     border-radius: 15px;
     flex-wrap: wrap;
     gap: 1em;
-    /* background-color: rgb(194, 197, 170); */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    justify-content: center; 
+    align-items: center; 
     padding-top: 20px;
     padding-bottom: 20px;
 }
