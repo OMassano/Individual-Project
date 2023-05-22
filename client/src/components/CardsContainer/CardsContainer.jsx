@@ -3,23 +3,26 @@ import Card from "../Cards/Card";
 import Paginate from "../Paginate/Paginate";
 import style from "./CardsContainer.module.css";
 import { useSelector } from "react-redux";
+
 const CardsContainer = ({ onClose }) => {
   const dogs = useSelector((state) => state.dogs);
   const numPage = useSelector((state) => state.numPage);
   // I want to see 8 out of x dogs per page
-  let start = (numPage - 1) * 8;// from 0
-  let finish = numPage * 8;// to 8
+  const start = (numPage - 1) * 8;
+  const finish = numPage * 8;
 
-  let totalPages = Math.ceil(dogs?.length / 8);
-  let viewDogs = dogs?.slice(start, finish); // asking to see a portion of dogs
+  const totalPages = Math.ceil(dogs.length / 8);
+  const viewDogs = dogs.slice(start, finish);
 
   return (
     <div className={style.container}>
-      {viewDogs &&
-        viewDogs.map((dog) => (
-          <Card key={dog.id} dog={dog} onClose={onClose} />
-        ))}
-      <Paginate totalPages={totalPages}></Paginate>
+      {viewDogs && viewDogs.map((dog) => (
+        <Card key={dog.id} dog={dog} onClose={onClose} />
+      ))}
+      {console.log(start, finish, totalPages, numPage)}
+      {dogs.length === 0 || viewDogs.length === 0 ? null : (
+        <Paginate totalPages={totalPages} />
+      )}
     </div>
   );
 };

@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
 
     case CLOSE_DOG:
       const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
-      return { ...state, dogs: updatedDogs, dog: [], dogsCopy: updatedDogs };
+      return { ...state, dogs: updatedDogs, dog: [], dogsCopy: updatedDogs, numPage:1 };
 
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload, dogsCopy: action.payload };
@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case CLOSE_DOGS:
-      return { dogs: action.payload, dogsCopy: action.payload };
+      return { dogs: action.payload, dogsCopy: action.payload, numPage:1 };
 
     case GET_TEMPS:
       return { ...state, temperaments: action.payload };
