@@ -13,10 +13,10 @@ const Paginate = ({totalPages}) => {
     dispatch(prevPage())
   }
   return (
-    <div className={style.paginate}>
+    <div className={style.container}>
         {numPage > 1 ? (
-        <div>
-          <button onClick={prev} className={style.paragraph}>PREV</button>
+        <div className={style.paginate}>
+          <button onClick={prev} className={style.button}>PREV</button>
           <p>{numPage - 1}</p>
         </div>
       ) : null}
@@ -24,9 +24,9 @@ const Paginate = ({totalPages}) => {
       <h3>{numPage}</h3>
 
       {numPage < totalPages ? (
-        <div>
+        <div className={style.paginate}>
           <p>{numPage + 1}</p>
-          <button onClick={next} className={style.paragraph}>NEXT</button>
+          <button onClick={next} className={style.button}>NEXT</button>
         </div>
       ) : null}
     </div>

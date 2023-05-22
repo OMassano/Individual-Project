@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
 
     case CLOSE_DOG:
       const updatedDogs = state.dogs.filter((dog) => dog.id !== action.payload);
-      return { ...state, dogs: updatedDogs, dog: [], dogsCopy: updatedDogs, numPage:1 };
+      return { ...state, dogs: updatedDogs, dog: [], dogsCopy: updatedDogs };
 
     case PREVIEW_DOG:
       return { ...state, dogs: action.payload, dogsCopy: action.payload };
