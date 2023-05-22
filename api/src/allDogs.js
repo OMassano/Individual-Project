@@ -8,8 +8,8 @@ const filterDogsData = async (res) => {
     id: dog.id,
     name: dog.name,
     image: dog.image.url,
-    height: dog.height.metric,
-    weight: dog.weight.metric,
+    height: dog.height.imperial,
+    weight: dog.weight.imperial,
     life_span: dog.life_span,
     temperament: dog.temperament?.split(",").map((temp) => temp.trim()) || [],
   }));

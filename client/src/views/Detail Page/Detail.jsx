@@ -29,8 +29,8 @@ const Detail = () => {
         <div className={style.info}>
           <h2 className={style.name}>{dog?.name}</h2>
           <p>ID: {dog?.id}</p>
-          <p>Height: {dog?.height}cm</p>
-          <p>Weight: {dog?.weight}kg</p>
+          <p>Height: {dog?.height} inches</p>
+          <p>Weight: {dog?.weight} lbs</p>
           <p>Temperaments: {dog?.temperament.join(", ")}</p>
           <p>LifeSpan: {dog?.life_span}</p>
       </div>

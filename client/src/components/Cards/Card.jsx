@@ -14,7 +14,7 @@ const Card = ({ dog, onClose }) => {
         <p className={style.dogName}>{name}</p>
         <img src={image} alt={name} className={style.dogImage} />
         <p>Temperaments: {temperament.join(", ")}</p>
-        <p>Weight: {weight}kg</p>   
+        <p>Weight: {weight} lbs</p>   
         </div>
       </Link>
     </div>
