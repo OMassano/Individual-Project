@@ -1,0 +1,11 @@
+export const GET_DOGS = "GET_DOGS";
+export const GET_DOG = "GET_DOG";
+export const CLOSE_DOG = "CLOSE_DOG";
+export const PREVIEW_DOG = "PREVIEW_DOG";
+export const GET_DOG_NAME = "GET_DOG_NAME";
+export const CLOSE_DOGS = "CLOSE_DOGS";
+export const FILTER = "FILTER";
+export const ORDER_NAME = "ORDER_NAME";
+export const ORDER_WEIGHT = "ORDER_WEIGHT";
+export const GET_TEMPS = "GET_TEMPS";
+export const NEXT_PAGE = "NEXT_PAGE"

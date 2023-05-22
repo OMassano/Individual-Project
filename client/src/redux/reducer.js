@@ -1,15 +1,6 @@
 import {
-  GET_DOG,
-  GET_DOGS,
-  CLOSE_DOG,
-  PREVIEW_DOG,
-  GET_DOG_NAME,
-  CLOSE_DOGS,
-  FILTER,
-  ORDER_NAME,
-  ORDER_WEIGHT,
-  GET_TEMPS,
-} from "./action";
+  GET_DOG,GET_DOGS,CLOSE_DOG,PREVIEW_DOG,GET_DOG_NAME,CLOSE_DOGS,FILTER,ORDER_NAME,ORDER_WEIGHT,GET_TEMPS,NEXT_PAGE
+} from "./index";
 
 const initialState = {
   // dogs and dogsCopy are exactly the same, but we only see dogs in our app. We created dogsCopy to be able to filter dogs
@@ -18,10 +9,14 @@ const initialState = {
   dog: [],
   dogsCopy: [],// in my cases like filter, i don't change dogsCopy so that it continues to see everything prev in dogs
   temperaments: [],
+  numPage: 1,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case NEXT_PAGE:
+      return{...state, numPage:state.numPage+1}
+      
     case GET_DOGS:
       return { ...state, dogs: action.payload, dogsCopy: action.payload };
 

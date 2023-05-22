@@ -1,15 +1,17 @@
 import axios from "axios";
-
-export const GET_DOGS = "GET_DOGS";
-export const GET_DOG = "GET_DOG";
-export const CLOSE_DOG = "CLOSE_DOG";
-export const PREVIEW_DOG = "PREVIEW_DOG";
-export const GET_DOG_NAME = "GET_DOG_NAME";
-export const CLOSE_DOGS = "CLOSE_DOGS";
-export const FILTER = "FILTER";
-export const ORDER_NAME = "ORDER_NAME";
-export const ORDER_WEIGHT = "ORDER_WEIGHT";
-export const GET_TEMPS = "GET_TEMPS";
+import {
+  GET_DOG,
+  GET_DOGS,
+  CLOSE_DOG,
+  PREVIEW_DOG,
+  GET_DOG_NAME,
+  CLOSE_DOGS,
+  FILTER,
+  ORDER_NAME,
+  ORDER_WEIGHT,
+  GET_TEMPS,
+  NEXT_PAGE,
+} from "./index";
 
 export const getDogs = () => {
   return async function (dispatch) {
@@ -73,11 +75,16 @@ export const getTemps = () => {
   return async function (dispatch) {
     const localTemps = await axios.get("http://localhost:5002/temperaments");
 
-    const tempData = localTemps.data.sort((a, b) => {// sorting data in alphabetical order
+    const tempData = localTemps.data.sort((a, b) => {
+      // sorting data in alphabetical order
       if (a.name < b.name) return -1;
       if (a.name > b.name) return 1;
       return 0;
     });
     dispatch({ type: GET_TEMPS, payload: tempData });
   };
+};
+//----------------------------------------------------------------------------------------------------------------------------
+export const nextPage = () => {
+  return { type: NEXT_PAGE, };
 };
