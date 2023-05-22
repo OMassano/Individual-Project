@@ -10,7 +10,7 @@ const CardsContainer = ({ onClose }) => {
   let start = (numPage - 1) * 8;// from 0
   let finish = numPage * 8;// to 8
 
-  let totalPages = Math.floor(dogs.length / 8);
+  let totalPages = Math.ceil(dogs.length / 8);
   let viewDogs = dogs?.slice(start, finish); // asking to see a portion of dogs
 
   return (

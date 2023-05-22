@@ -9,3 +9,4 @@ export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_WEIGHT = "ORDER_WEIGHT";
 export const GET_TEMPS = "GET_TEMPS";
 export const NEXT_PAGE = "NEXT_PAGE"
+export const PREV_PAGE = "PREV_PAGE"

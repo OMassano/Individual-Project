@@ -1,5 +1,5 @@
 import {
-  GET_DOG,GET_DOGS,CLOSE_DOG,PREVIEW_DOG,GET_DOG_NAME,CLOSE_DOGS,FILTER,ORDER_NAME,ORDER_WEIGHT,GET_TEMPS,NEXT_PAGE
+  GET_DOG,GET_DOGS,CLOSE_DOG,PREVIEW_DOG,GET_DOG_NAME,CLOSE_DOGS,FILTER,ORDER_NAME,ORDER_WEIGHT,GET_TEMPS,NEXT_PAGE, PREV_PAGE
 } from "./index";
 
 const initialState = {
@@ -16,7 +16,9 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case NEXT_PAGE:
       return{...state, numPage:state.numPage+1}
-      
+    
+    case PREV_PAGE:
+      return{...state, numPage:state.numPage-1}
     case GET_DOGS:
       return { ...state, dogs: action.payload, dogsCopy: action.payload };
 

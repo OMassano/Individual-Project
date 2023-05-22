@@ -11,6 +11,7 @@ import {
   ORDER_WEIGHT,
   GET_TEMPS,
   NEXT_PAGE,
+  PREV_PAGE,
 } from "./index";
 
 export const getDogs = () => {
@@ -88,3 +89,7 @@ export const getTemps = () => {
 export const nextPage = () => {
   return { type: NEXT_PAGE, };
 };
+
+export const prevPage = () =>{
+  return{type: PREV_PAGE}
+}
