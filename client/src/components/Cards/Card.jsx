@@ -5,7 +5,6 @@ import style from "./Card.module.css";
 const Card = ({ dog, onClose }) => {
   const { id, image, name, temperament, weight } = dog;
 
-
   return (
     <div className={style.card}>
       <button onClick={() => onClose(id)} className={style.button}>X</button>
