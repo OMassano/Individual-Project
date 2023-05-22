@@ -19,8 +19,8 @@ TempModel(sequelize);
 const { Dog, Temperament } = sequelize.models;
 
 //Creates new table with relationship
-Dog.belongsToMany(Temperament, { through: "DogTemperament" });
-Temperament.belongsToMany(Dog, { through: "DogTemperament" });
+Dog.belongsToMany(Temperament, { through: "dogtemperament" });
+Temperament.belongsToMany(Dog, { through: "dogtemperament" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
