@@ -4,10 +4,12 @@ const Form = () => {
   const [form, setForm] = useState({
     name: "",
     image: "",
+    minHeight: "",
+    maxHeight: "",
     height: "",
     minWeight: "",
-    maxWeight:"",
-    weight:"",
+    maxWeight: "",
+    weight: "",
     life_span: "",
     temperament: [],
   });
@@ -21,30 +23,37 @@ const Form = () => {
     temperament: [],
   });
 
-const changeHandler = (event) => {
+  const changeHandler = (event) => {
     // as i type
     const property = event.target.name; // place in form
     let value = event.target.value; // whats written in form
 
-  if (property === "temperament") {
-    value = value.split(",").map((temp) => temp.trim());
-  }
-  
+    if (property === "temperament") {
+      value = value.split(",").map((temp) => temp.trim());
+    }
+
     validate({ ...form, [property]: value });
     setForm({ ...form, [property]: value });
-};
-
+  };
 
   const validate = (form) => {};
 
   const submitHandler = (event) => {
     event.preventDefault();
-  
-    const { minWeight, maxWeight, ...rest } = form;
+
+    const { minWeight, maxWeight, minHeight, maxHeight, ...rest } = form;
     const weight = `${minWeight}-${maxWeight}`;
-    const formData = {...rest,weight,};
-    console.log(formData)
-    axios.post("http://localhost:5002/dogs", formData).then((res) => alert(res)).catch(error=>alert(error))
+    const height = `${minHeight} - ${maxHeight}`;
+    const formData = { ...rest, weight, height };
+    console.log(formData);
+    axios
+      .post("http://localhost:5002/dogs", formData)
+      .then(() =>
+        alert(
+          `${form.name} was created successfully and is now in our dog database!`
+        )
+      )
+      .catch((error) => alert(error));
   };
 
   return (
@@ -68,11 +77,20 @@ const changeHandler = (event) => {
         />
       </div>
       <div>
-        <label>Height: </label>
+        <label>Minimum Height: </label>
         <input
           type="text"
-          value={form.height}
-          name="height"
+          value={form.minHeight}
+          name="minHeight"
+          onChange={changeHandler}
+        />
+      </div>
+      <div>
+        <label>Maximum Height: </label>
+        <input
+          type="text"
+          value={form.maxHeight}
+          name="maxHeight"
           onChange={changeHandler}
         />
       </div>
@@ -85,7 +103,7 @@ const changeHandler = (event) => {
           onChange={changeHandler}
         />
       </div>
-            <div>
+      <div>
         <label>Maximum weight: </label>
         <input
           type="text"
