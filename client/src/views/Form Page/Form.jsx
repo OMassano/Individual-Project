@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getTemps } from "../../redux/action";
+
 const Form = () => {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     name: "",
     image: "",
@@ -55,6 +59,13 @@ const Form = () => {
       )
       .catch((error) => alert(error));
   };
+  useEffect(() =>{
+    dispatch(getTemps())
+  }, [])
+  // const viewTemps = () => {
+  //   dispatch(getTemps());
+  // };
+  const temperaments = useSelector((state) => state.temperaments);
 
   return (
     <form onSubmit={submitHandler}>
@@ -123,13 +134,20 @@ const Form = () => {
       </div>
       <div>
         <label>Temperaments: </label>
-        <input
-          type="text"
+        <select
+          multiple
           value={form.temperament}
           name="temperament"
           onChange={changeHandler}
-        />
+          // onClick={viewTemps}
+        >
+          {temperaments &&
+            temperaments.map((temp) =>
+              temp.name ? <option key={temp.id}>{temp.name}</option> : null
+            )}
+        </select>
       </div>
+
       <button type="submit">SUBMIT</button>
     </form>
   );
