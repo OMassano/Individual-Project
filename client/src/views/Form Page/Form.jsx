@@ -5,7 +5,9 @@ const Form = () => {
     name: "",
     image: "",
     height: "",
-    weight: "",
+    minWeight: "",
+    maxWeight:"",
+    weight:"",
     life_span: "",
     temperament: [],
   });
@@ -19,25 +21,30 @@ const Form = () => {
     temperament: [],
   });
 
-  const changeHandler = (event) => {
+const changeHandler = (event) => {
     // as i type
     const property = event.target.name; // place in form
     let value = event.target.value; // whats written in form
 
-    if (property === "temperament") {
-        value = value.split(",").map((temp) => temp.trim());
-      }
-
+  if (property === "temperament") {
+    value = value.split(",").map((temp) => temp.trim());
+  }
+  
     validate({ ...form, [property]: value });
     setForm({ ...form, [property]: value });
-  };
+};
+
 
   const validate = (form) => {};
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(form.temperament);
-    axios.post("http://localhost:5002/dogs", form).then((res) => alert(res)).catch(error=>alert(error))
+  
+    const { minWeight, maxWeight, ...rest } = form;
+    const weight = `${minWeight}-${maxWeight}`;
+    const formData = {...rest,weight,};
+    console.log(formData)
+    axios.post("http://localhost:5002/dogs", formData).then((res) => alert(res)).catch(error=>alert(error))
   };
 
   return (
@@ -70,11 +77,20 @@ const Form = () => {
         />
       </div>
       <div>
-        <label>Weight: </label>
+        <label>Minimum weight: </label>
         <input
           type="text"
-          value={form.weight}
-          name="weight"
+          value={form.minWeight}
+          name="minWeight"
+          onChange={changeHandler}
+        />
+      </div>
+            <div>
+        <label>Maximum weight: </label>
+        <input
+          type="text"
+          value={form.maxWeight}
+          name="maxWeight"
           onChange={changeHandler}
         />
       </div>
