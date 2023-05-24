@@ -31,7 +31,7 @@ const SearchBar = () => {
             "That dog does not exist! Please attempt to search for a different dog breed or add the dog yourself in our new form section!"
           );
         });
-      }, 100);
+      }, 50);
     } else {
       alert("You have already searched up that name!");
     }

@@ -20,9 +20,9 @@ const CardsContainer = ({ onClose }) => {
         <Card key={dog.id} dog={dog} onClose={onClose} />
       ))}
       {console.log(start, finish, totalPages, numPage)}
-      {viewDogs.length === 0 ? null : (// only shows pages after it
+      {dogs.length > 8 ?(// only shows pages after it
         <Paginate totalPages={totalPages} />
-      )}
+      ): null}
     </div>
   );
 };
