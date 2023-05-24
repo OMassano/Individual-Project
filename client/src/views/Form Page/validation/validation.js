@@ -24,9 +24,9 @@ const validate = (form) => {
     errors.maxHeight = "Maximum height must be a valid number";
   } else if (Number(form.maxHeight) < 5 || Number(form.maxHeight) > 40) {
     errors.maxHeight = "Height must be within 5 and 40 inches";
-  } else if (Number(form.minHeight) > Number(form.maxHeight)) {
+  } else if (Number(form.minHeight) >= Number(form.maxHeight)) {
     errors.maxHeight =
-      "Minimum height cannot be greater than maximum height. Please ensure your minimum is a lesser number than your maximum";
+      "Minimum height cannot be greater than or equal to maximum height. Please ensure your minimum is a lesser number than your maximum";
   }
 //---------------------------------------------------------------------------------------------------------------------------------
 if (!form.minWeight) {
@@ -43,17 +43,20 @@ if (!form.minWeight) {
     errors.maxWeight = "Maximum weight must be a valid number";
   } else if (Number(form.maxWeight) < 3 || Number(form.maxWeight) > 250) {
     errors.maxWeight = "Weight must be between 3 and 250 lbs";
-  } else if (Number(form.minWeight) > Number(form.maxWeight)) {
+  } else if (Number(form.minWeight) >= Number(form.maxWeight)) {
     errors.maxWeight =
-      "Minimum weight cannot be greater than maximum weight. Please ensure your minimum is a lesser number than your maximum";
+      "Minimum weight cannot be greater than or equal to maximum weight. Please ensure your minimum is a lesser number than your maximum";
   }
 //---------------------------------------------------------------------------------------------------------------------------------
- if(!form.life_span){
-    errors.life_span="Please enter your dogs lifespan in numbers"
- }
-//  else if (isNaN(form.life_span)) {
-//     errors.life_span = "Invalid format. Enter the lifespan as a valid number";
-//   }
+if (!form.life_span) {
+    errors.life_span = "Please enter the lifespan in the format 'x years'.";
+  } else if (!/^\d+\s+years$/.test(form.life_span)) {
+    errors.life_span = "Invalid format. Enter the lifespan in the format 'x years'. X needs to be a valid number";
+  }
+//---------------------------------------------------------------------------------------------------------------------------------
+if(!form.temp1 || !form.temp2){
+    errors.temp1= "Please select two temperaments"
+}
   return errors;
 };
 

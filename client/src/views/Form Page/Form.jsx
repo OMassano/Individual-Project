@@ -51,7 +51,7 @@ const Form = () => {
     if (property === "name") {
       value = value.replace(/\b\w/g, (c) => c.toUpperCase());// sets letter of each word to caps
     }
-    
+
     setErrors(validate({ ...form, [property]: value }));
 
     setForm({ ...form, [property]: value });
@@ -110,6 +110,7 @@ const Form = () => {
       <div>
         <label>LifeSpan: </label>
         <input type="text" value={form.life_span} name="life_span" onChange={changeHandler} placeholder="Years"/>
+        {errors.life_span && <p>{errors.life_span}</p>}
       </div>
       <div>
         <label>First Temperament: </label>
@@ -129,6 +130,7 @@ const Form = () => {
               temp.name ? <option key={temp.id}>{temp.name}</option> : null
             )}
         </select>
+        {errors.temp1 && <p>{errors.temp1}</p>}
       </div>
 
       <button type="submit">SUBMIT</button>
