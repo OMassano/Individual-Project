@@ -1,4 +1,5 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import Paginate from "../../components/Paginate/Paginate";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Home.module.css";
 import {
@@ -13,6 +14,9 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
+  const temperaments = useSelector((state) => state.temperaments);
+  const dogs = useSelector(state => state.dogs)
+  const totalPages = Math.ceil(dogs.length / 8);
 
   const onClose = (id) => {
     dispatch(closeDog(id));
@@ -36,8 +40,6 @@ const Home = () => {
   const viewTemps = () => {
     dispatch(getTemps());
   };
-  const temperaments = useSelector((state) => state.temperaments);
-  // console.log(temperaments); // works fine
 
   const handleFilter = (event) => {
     const temperament = event.target.value;
@@ -72,6 +74,10 @@ const Home = () => {
       </div>
 
       <CardsContainer onClose={onClose} />
+
+      {dogs.length > 8 ?(// only shows pages after it
+        <Paginate totalPages={totalPages} />
+      ): null}
     </div>
   );
 };

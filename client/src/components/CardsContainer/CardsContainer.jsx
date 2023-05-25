@@ -11,7 +11,6 @@ const CardsContainer = ({ onClose }) => {
   const start = (numPage - 1) * 8;
   const finish = numPage * 8;
 
-  const totalPages = Math.ceil(dogs.length / 8);
   const viewDogs = dogs.slice(start, finish);
 
   return (
@@ -19,10 +18,6 @@ const CardsContainer = ({ onClose }) => {
       {viewDogs && viewDogs.map((dog) => (
         <Card key={dog.id} dog={dog} onClose={onClose} />
       ))}
-      {console.log(start, finish, totalPages, numPage)}
-      {dogs.length > 8 ?(// only shows pages after it
-        <Paginate totalPages={totalPages} />
-      ): null}
     </div>
   );
 };
