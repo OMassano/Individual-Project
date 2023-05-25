@@ -12,25 +12,49 @@ const Paginate = ({totalPages}) => {
   const prev = () =>{
     dispatch(prevPage())
   }
-  return (
-    <div className={style.container}>
-        {numPage > 1 ? (
-        <div className={style.paginate}>
-          <button onClick={prev} className={style.button}>PREV</button>
-          <p>{numPage - 1}</p>
-        </div>
-      ) : null}
+//   return (
+//     <div className={style.container}>
+//         {numPage > 1 ? (
+//         <div className={style.paginate}>
+//           <button onClick={prev} className={style.button}>PREV</button>
+//           <p>{numPage - 1}</p>
+//         </div>
+//       ) : null}
 
-      <h3>{numPage}</h3>
+//       <h3>{numPage}</h3>
 
-      {numPage < totalPages ? (
-        <div className={style.paginate}>
-          <p>{numPage + 1}</p>
-          <button onClick={next} className={style.button}>NEXT</button>
-        </div>
-      ) : null}
-    </div>
-  );
+//       {numPage < totalPages ? (
+//         <div className={style.paginate}>
+//           <p>{numPage + 1}</p>
+//           <button onClick={next} className={style.button}>NEXT</button>
+//         </div>
+//       ) : null}
+//     </div>
+//   );
+// };
+return (
+  <div className={style.container}>
+    {numPage > 1 ? (
+      <div className={style.paginate}>
+        <button onClick={prev} className={style.button}>
+          PREV
+        </button>
+        <p>{numPage - 1}</p>
+      </div>
+    ) : null}
+
+    <h3 className={style.centered}>{numPage}</h3>
+
+    {numPage < totalPages ? (
+      <div className={style.paginate}>
+        <p>{numPage + 1}</p>
+        <button onClick={next} className={style.button}>
+          NEXT
+        </button>
+      </div>
+    ) : null}
+  </div>
+);
 };
 
 export default Paginate;

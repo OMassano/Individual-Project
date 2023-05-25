@@ -1,4 +1,4 @@
-.container {
+ .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,7 @@
   bottom: 0;
 }
 
+
 .paginate {
   display: flex;
   justify-content: center;
@@ -21,6 +22,12 @@
   margin-left: 8px;
   margin-right: 8px;
   color: rgb(59, 44, 34);
+}
+
+.centered {
+  text-align: center; 
+  flex-grow: 1; 
+  margin: 0; 
 }
 
 .button {
@@ -40,6 +47,7 @@
   box-shadow: rgb(59, 44, 34) 0px 0px 15px 0px;
   border: 2px solid rgb(102, 76, 59);
 }
+
 .button:hover {
   box-shadow: none;
 }
