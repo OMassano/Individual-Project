@@ -1,6 +1,10 @@
-const validate = (form) => {
-  const errors = {};
+import axios from "axios"
+const validate = async (form) => {
+    const errors = {};
 
+    const dogs = await axios.get("http://localhost:5002/getalldogs").data
+    console.log(dogs)
+    const existingDog = dogs.find(dog=>dog.name === form.name)
   if (!form.name) {
     errors.name = "Please enter a dog breed/name";
   } else if (!/^[A-Za-z\s]+$/.test(form.name)) {
@@ -8,6 +12,9 @@ const validate = (form) => {
       "The breed/name must only contain letters and spaces; Please enter a valid name";
   } else if (form.name.length > 30) {
     errors.name = "The breed/name must contain no more than 30 characters";
+  }
+  else if(existingDog){
+    errors.name = "That dog already exists!"
   }
 //---------------------------------------------------------------------------------------------------------------------------------
   if (!form.minHeight) {
