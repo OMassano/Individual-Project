@@ -49,10 +49,12 @@ const validate = (form) => {
     }
   //---------------------------------------------------------------------------------------------------------------------------------
   if (!form.life_span) {
-      errors.life_span = "Please enter the lifespan in the format 'x years'.";
-    } else if (!/^\d+\s+years$/.test(form.life_span)) {
-      errors.life_span = "Invalid format. Enter the lifespan in the format 'x years'. X needs to be a valid number";
-    }
+    errors.life_span = "Please enter the lifespan in the format 'x years' or 'x-y years'.";
+  } else if (!/^\d+(\s?-\s?\d+)?\syears$/.test(form.life_span)) {
+    errors.life_span = "Invalid format. Enter the lifespan in the format 'x years' or 'x-y years'. X and Y need to be valid numbers";
+  }
+  
+  
   //---------------------------------------------------------------------------------------------------------------------------------
   if(!form.temp1 || !form.temp2){
       errors.temp1= "Please select two temperaments"

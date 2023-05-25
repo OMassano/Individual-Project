@@ -66,10 +66,13 @@ const Form = () => {
     const temperament = [temp1, temp2];
     const formData = { ...rest, weight, height, temperament };
     console.log(formData);
-
-    axios.post("http://localhost:5002/dogs", formData)
-      .then(() =>alert(`${form.name} was created successfully and is now in our dog database!`))
-      .catch((error) => alert(error));
+    if(errors){
+      alert("Please resolve any errors before submitting this form")
+    }else{
+      axios.post("http://localhost:5002/dogs", formData)
+        .then(() =>alert(`${form.name} was created successfully and is now in our dog database!`))
+        .catch((error) => alert(error));
+    }
   };
 
 
