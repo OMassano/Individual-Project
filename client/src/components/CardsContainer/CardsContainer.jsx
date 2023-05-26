@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Cards/Card";
-import Paginate from "../Paginate/Paginate";
 import style from "./CardsContainer.module.css";
 import { useSelector } from "react-redux";
 

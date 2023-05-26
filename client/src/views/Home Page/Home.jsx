@@ -15,6 +15,7 @@ import {
 const Home = () => {
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.temperaments);
+  
   const dogs = useSelector(state => state.dogs)
   const totalPages = Math.ceil(dogs.length / 8);
 
