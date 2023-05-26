@@ -24,7 +24,7 @@ const Detail = () => {
   return (
     <div className={style.container}>
       <div>
-          <img src={dog?.image} alt={dog?.name} className={style.image}/>
+          {dog.image && <img src={dog?.image} alt={dog?.name} className={style.image}/>}
       </div>
         <div className={style.info}>
           <h2 className={style.name}>{dog?.name}</h2>

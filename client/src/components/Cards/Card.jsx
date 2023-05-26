@@ -11,7 +11,7 @@ const Card = ({ dog, onClose }) => {
       <Link to={`/dogdetail/${id}`}className={style.link}>
         <div>
         <p className={style.dogName}>{name}</p>
-        <img src={image} alt={name} className={style.dogImage} />
+       {image && <img src={image} alt={name} className={style.dogImage} />}
         <p>Temperaments: {temperament.join(", ")}</p>
         <p>Weight: {weight} lbs</p>   
         </div>

@@ -16,7 +16,6 @@ const Form = () => {
 
   const [form, setForm] = useState({
     name: "",
-    image: "",
     minHeight: "",
     maxHeight: "",
     height: "",
@@ -31,7 +30,6 @@ const Form = () => {
 
   const [errors, setErrors] = useState({
     name: "",
-    image: "",
     minHeight: "",
     maxHeight: "",
     height: "",
@@ -75,8 +73,9 @@ const Form = () => {
     const temperament = [temp1, temp2];
     const formData = { ...rest, weight, height, temperament };
     console.log(formData);
-    if (errors) {
+    if (errors[0]) {
       alert("Please resolve any errors before submitting this form");
+      console.log(errors)
     } else {
       axios
         .post("http://localhost:5002/dogs", formData)
@@ -102,15 +101,6 @@ const Form = () => {
             onChange={changeHandler}
           />
           {errors.name && <p>{errors.name}</p>}
-        </div>
-        <div>
-          <label>Image URL: </label>
-          <input
-            type="text"
-            value={form.image}
-            name="image"
-            onChange={changeHandler}
-          />
         </div>
         <div>
           <label>Height (inches): </label>
