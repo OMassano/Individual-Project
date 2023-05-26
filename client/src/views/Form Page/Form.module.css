@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(170, 177, 141);
+  padding: 60px;
+  align-items: flex-start;
+  border-radius: 15px;
+  border: 1px solid rgb(65, 72, 51);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 400px;
+  margin-right: 400px;
+  justify-content: center;
+  position: relative;
+}
+
+.container > div {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container label {
+  width: 150px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.container input,
+.container select {
+  flex: 1;
+  padding: 5px;
+}
+
+.container p {
+  margin-left: 10px;
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.maxinput {
+  margin-left: 160px;
+}
+.container h1 {
+  margin-top: 0;
+  font-size: 50px;
+  text-align: center;
+  color: rgb(65, 72, 51);
+  font-variant: small-caps;
+  text-shadow: 0px 2px 4px rgba(101, 109, 74, 0.82);
+  margin-left: auto;
+  margin-right: auto;
+}
+.button {
+  margin-left: auto;
+  margin-right:auto ;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  line-height: 17px;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: "Palatino Linotype", serif;
+  font-weight: 550;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 109, 74) 0%,
+    rgb(170, 177, 141) 50%,
+    rgb(65, 72, 51) 100%
+  );
+  box-shadow: rgb(65, 72, 51) 6px 5px 15px 5px;
+  border: 2px solid rgb(65, 72, 51);
+}
+.button:hover {
+  box-shadow: none;
+}
