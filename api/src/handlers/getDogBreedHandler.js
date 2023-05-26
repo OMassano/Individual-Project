@@ -1,7 +1,9 @@
 const { getBreed, getDogByName } = require("../controllers/dogControllers");
 
 const getDogBreedHandler = async (req, res) => {
+  //
   const { name } = req.query;
+  
   try {
     if (name) {
       const dogsName = await getDogByName(name);

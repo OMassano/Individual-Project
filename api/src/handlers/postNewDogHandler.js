@@ -7,6 +7,7 @@ const postNewDogHandler = async (req, res) => {
     const newDog = await Dog.create({ name, image, height, weight, life_span });
 
     const tempNames = Array.isArray(temperament) ? temperament : [temperament];
+    
     const tempInDb = await Temperament.findAll({
       where: { name: tempNames },
     });

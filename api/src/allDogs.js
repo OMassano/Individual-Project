@@ -1,7 +1,7 @@
 const { Dog, Temperament } = require("./db");
 const axios = require("axios");
 const { API_KEY, API_URL } = process.env;
-
+//getting all info from each dog same thing as map of dogsInDb
 const filterDogsData = async (res) => {
   const filteredDogs = res.data.map((dog) => ({
     id: dog.id,
@@ -16,7 +16,7 @@ const filterDogsData = async (res) => {
   }));
   return filteredDogs;
 };
-
+// getting all dogs from axios
 const allDogs = async () => {
   const res = await axios.get(`${API_URL}?apikey=${API_KEY}`);
   const dogsInApi = await filterDogsData(res);
@@ -27,7 +27,7 @@ const allDogs = async () => {
       attributes: ["name"],
     },
   });
-
+// getting all of the info for each dog
   const dogsInDbValues = dogsInDb.map((dog) => ({
     id: dog.id,
     name: dog.name,
@@ -39,6 +39,7 @@ const allDogs = async () => {
   }));
 
   const allDogs = [...dogsInApi, ...dogsInDbValues];
+  //alphabetical order
   allDogs.sort((a, b) => a.name.localeCompare(b.name));
 
   return allDogs;

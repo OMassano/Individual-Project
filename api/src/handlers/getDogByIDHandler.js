@@ -5,7 +5,6 @@ const getDogByIDHandler = async (req, res) => {
 
   const source = isNaN(id) ? "db" : "api";
   // console.log(source); // source is working
-
   try {
     // console.log(id);
     const dogsId = await getDogById(id, source);
