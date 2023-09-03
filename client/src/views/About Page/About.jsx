@@ -18,7 +18,7 @@ const About = () => {
         2004. She attended her primary studies in the United States and her
         secondary studies in Argentina. She began programming just a year ago
         after enrolling in a pyhton course. This is one of the first apps she
-        has ever created.
+        has ever created. Currently being edited!
       </p>
     </div>
   );
